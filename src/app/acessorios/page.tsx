@@ -15,28 +15,22 @@ import { products } from '@/data/products';
 import { ProductCard } from '@/components/ProductCard';
 
 export default function AccessoriesPage() {
-  // Estados para controlar os filtros
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [platformFilter, setPlatformFilter] = useState<string>('Todos');
 
-  // 1. Filtra por categoria (Acessórios) e Plataforma
   const filteredAccessories = products.filter(product => {
-    // É um acessório?
     const isAccessory = product.category === 'Acessórios';
 
-    // Bate com a plataforma escolhida? (Se for "Todos", passa direto)
     const matchPlatform = platformFilter === 'Todos' || product.platform === platformFilter;
 
-    // Retorna true apenas se for acessório E for da plataforma selecionada
     return isAccessory && matchPlatform;
   });
 
-  // 2. Aplica a ordenação de preço na lista já filtrada
   const sortedAndFilteredProducts = [...filteredAccessories].sort((a, b) => {
     if (sortOrder === 'asc') {
-      return a.price - b.price; // Mais Barato primeiro
+      return a.price - b.price;
     } else {
-      return b.price - a.price; // Mais Caro primeiro
+      return b.price - a.price;
     }
   });
 
@@ -46,7 +40,6 @@ export default function AccessoriesPage() {
         Acessórios para Cubos Mágicos
       </Typography>
 
-      {/* Box contendo os filtros alinhados de forma responsiva */}
       <Box sx={{
         display: 'flex',
         flexDirection: { xs: 'column', sm: 'row' },
@@ -55,7 +48,6 @@ export default function AccessoriesPage() {
         mb: 4
       }}>
 
-        {/* Filtro de Plataforma */}
         <FormControl size="small" sx={{ width: { xs: '100%', sm: 'auto' }, minWidth: 160, backgroundColor: 'background.paper' }}>
           <InputLabel id="platform-label">Plataforma</InputLabel>
           <Select
@@ -71,7 +63,6 @@ export default function AccessoriesPage() {
           </Select>
         </FormControl>
 
-        {/* Ordenação de Preço */}
         <FormControl size="small" sx={{ width: { xs: '100%', sm: 'auto' }, minWidth: 200, backgroundColor: 'background.paper' }}>
           <InputLabel id="sort-label">Ordenar por Preço</InputLabel>
           <Select
@@ -87,7 +78,6 @@ export default function AccessoriesPage() {
         </FormControl>
       </Box>
 
-      {/* Grid de Produtos */}
       <Grid container spacing={4}>
         {sortedAndFilteredProducts.length > 0 ? (
           sortedAndFilteredProducts.map((product) => (

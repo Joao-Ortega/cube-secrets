@@ -16,7 +16,6 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import Link from 'next/link';
 
 export default function Navbar() {
-  // Estado para controlar se o menu mobile está aberto ou fechado
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -31,12 +30,10 @@ export default function Navbar() {
     <AppBar position="sticky" color="default" elevation={1} sx={{ backgroundColor: '#121212', borderBottom: '1px solid #333' }}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
 
-        {/* LOGO - Lado Esquerdo */}
         <Typography variant="h6" component={Link} href="/" sx={{ color: 'primary.main', textDecoration: 'none', fontWeight: 'bold' }}>
           CUBE <Box component="span" sx={{ color: 'secondary.main' }}>SECRETS</Box>
         </Typography>
 
-        {/* MENU DESKTOP - Centro (Escondido no celular) */}
         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
           <Button color="inherit" component={Link} href="/maisVendidos">Mais Vendidos</Button>
           <Button color="inherit" component={Link} href="/">Cubos</Button>
@@ -44,10 +41,8 @@ export default function Navbar() {
           <Button color="inherit" component={Link} href="/aprenda">Aprenda a Montar</Button>
         </Box>
 
-        {/* ÁREA DA DIREITA: Instagram + Menu Hamburguer */}
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
 
-          {/* Botão do Instagram */}
           <IconButton
             color="inherit"
             component="a"
@@ -56,13 +51,11 @@ export default function Navbar() {
             rel="noopener noreferrer"
           >
             <InstagramIcon sx={{ color: '#E1306C' }} />
-            {/* Escondemos o texto "@cube.secrets" no celular para poupar espaço */}
             <Typography variant="body2" sx={{ ml: 0.5, color: '#E1306C', display: { xs: 'none', sm: 'block' } }}>
               cube.secrets
             </Typography>
           </IconButton>
 
-          {/* MENU MOBILE (Hamburguer) - Visível apenas no celular */}
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -90,7 +83,6 @@ export default function Navbar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {/* Opções do Menu Mobile */}
               <MenuItem onClick={handleCloseNavMenu} component={Link} href="/maisVendidos">
                 <Typography sx={{ textAlign: 'center' }}>
                   Mais Vendidos

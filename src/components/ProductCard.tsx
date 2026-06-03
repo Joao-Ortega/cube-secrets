@@ -1,17 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Container, Typography, Grid, Card, CardMedia, CardContent, Button, Box, Chip } from '@mui/material';
+import { Typography, Card, CardMedia, CardContent, Button, Box, Chip } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { products } from '@/data/products';
 
-// Componente isolado para gerenciar o estado da imagem de cada produto
 export function ProductCard({ product }: { product: any }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  // Novo estado para controlar quando a animação de fade deve ocorrer
   const [isFading, setIsFading] = useState(false);
 
-  // Duração da animação de fade em milissegundos
   const fadeDuration = 500;
 
   useEffect(() => {
@@ -24,9 +20,9 @@ export function ProductCard({ product }: { product: any }) {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % product.images.length);
 
         setIsFading(false);
-      }, fadeDuration); // Tempo exato da transição CSS
+      }, fadeDuration);
 
-    }, 3500); // Tempo total que cada imagem fica visível (aumentei um pouco para ficar mais agradável)
+    }, 3500);
 
     return () => clearInterval(interval);
   }, [product.images]);
@@ -44,15 +40,11 @@ export function ProductCard({ product }: { product: any }) {
           objectFit: 'contain',
           p: 2,
           backgroundColor: '#fff',
-          // CONFIGURAÇÃO DA ANIMAÇÃO CSS
-          // Transiciona a propriedade 'opacity'
           transition: `opacity ${fadeDuration}ms ease-in-out`,
-          // Controla a opacidade baseada no estado do React
           opacity: isFading ? 0 : 1,
         }}
       />
       <CardContent sx={{ flexGrow: 1 }}>
-        {/* ... (resto do conteúdo do card permanece igual) ... */}
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 1 }}>
           <Chip
             label={product.platform}
@@ -61,7 +53,6 @@ export function ProductCard({ product }: { product: any }) {
               backgroundColor: product.platform === 'Amazon' ? '#232F3E' : '#FFE600',
               color: product.platform === 'Amazon' ? '#FFFFFF' : '#000000',
               fontWeight: 'bold',
-              // Opcional: uma bordinha sutil no ML para destacar no tema dark
               border: product.platform === 'Mercado Livre' ? '1px solid #cca300' : 'none'
             }}
           />
