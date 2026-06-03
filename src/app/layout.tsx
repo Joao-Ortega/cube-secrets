@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import ThemeRegistry from '@/components/ThemeRegistry';
 
@@ -19,6 +20,7 @@ export default function RootLayout({
           <main style={{ minHeight: '100vh', paddingBottom: '40px' }}>
             {children}
           </main>
+          <Footer />
         </ThemeRegistry>
       </body>
     </html>

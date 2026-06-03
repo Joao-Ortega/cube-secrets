@@ -32,5 +32,27 @@ export const courses: Course[] = [
     image: '/images/Soon.png',
     linkKiwify: '#',
     features: ['Método Simplificado', 'Finger tricks para o 2x2']
+  },
+  {
+    id: '4x4-tutorial',
+    title: 'Dominando o Monstro 4x4',
+    description: 'Em breve. Novos movimentos, novas estratégias e a emoção de resolver um cubo maior e mais complexo. Aprenda a lidar com as temidas paridades e prepare-se para o próximo nível!',
+    level: 'Intermediário',
+    lessonsCount: 8,
+    price: 'Em breve',
+    image: '/images/Soon.png',
+    linkKiwify: '#',
+    features: ['Método de Redução para 3x3', 'Identificação e Resolução de Paridades', 'Finger tricks avançados para o 4x4']
+  },
+  {
+    id: '5x5-tutorial',
+    title: 'Desvendando o Cubo 5x5 (Professor Cube)',
+    description: 'Em breve. O desafio definitivo. Aprimore suas habilidades de redução, domine a construção de centros móveis e o pareamento de arestas triplas sem se perder no processo.',
+    level: 'Avançado',
+    lessonsCount: 10,
+    price: 'Em breve',
+    image: '/images/Soon.png',
+    linkKiwify: '#',
+    features: ['Construção lógica de centros', 'Pareamento de arestas complexas', 'Técnicas de look-ahead para cubos grandes']
   }
 ];
