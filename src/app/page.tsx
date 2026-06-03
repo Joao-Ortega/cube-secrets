@@ -15,32 +15,25 @@ import { products } from '@/data/products';
 import { ProductCard } from '@/components/ProductCard';
 
 export default function Home() {
-  // Estados para controlar os três filtros
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [sizeFilter, setSizeFilter] = useState<string>('Todos');
   const [platformFilter, setPlatformFilter] = useState<string>('Todos');
 
-  // 1. Filtra por categoria (Cubo), Tamanho e Plataforma
   const filteredCubes = products.filter(product => {
-    // É um cubo?
     const isCube = product.category.includes('Cubo');
 
-    // Bate com o tamanho escolhido? (Se for "Todos", passa direto)
     const matchSize = sizeFilter === 'Todos' || product.category.includes(sizeFilter);
 
-    // Bate com a plataforma escolhida? (Se for "Todos", passa direto)
     const matchPlatform = platformFilter === 'Todos' || product.platform === platformFilter;
 
-    // Retorna true apenas se passar em todos os testes
     return isCube && matchSize && matchPlatform;
   });
 
-  // 2. Aplica a ordenação de preço na lista já filtrada
   const sortedAndFilteredProducts = [...filteredCubes].sort((a, b) => {
     if (sortOrder === 'asc') {
-      return a.price - b.price; // Mais Barato primeiro
+      return a.price - b.price;
     } else {
-      return b.price - a.price; // Mais Caro primeiro
+      return b.price - a.price;
     }
   });
 
@@ -50,16 +43,14 @@ export default function Home() {
         Cubos
       </Typography>
 
-      {/* Box contendo os três filtros alinhados */}
       <Box sx={{
         display: 'flex',
-        flexDirection: { xs: 'column', sm: 'row' }, // Coluna no celular, Linha no PC
-        justifyContent: { xs: 'flex-start', sm: 'flex-end' }, // Estica no celular, Direita no PC
+        flexDirection: { xs: 'column', sm: 'row' },
+        justifyContent: { xs: 'flex-start', sm: 'flex-end' },
         gap: 2,
         mb: 4
       }}>
 
-        {/* Filtro de Plataforma */}
         <FormControl size="small" sx={{ width: { xs: '100%', sm: 'auto' }, minWidth: 160, backgroundColor: 'background.paper' }}>
           <InputLabel id="platform-label">Plataforma</InputLabel>
           <Select
@@ -75,7 +66,6 @@ export default function Home() {
           </Select>
         </FormControl>
 
-        {/* Filtro de Tamanho */}
         <FormControl size="small" sx={{ width: { xs: '100%', sm: 'auto' }, minWidth: 150, backgroundColor: 'background.paper' }}>
           <InputLabel id="size-label">Tamanho</InputLabel>
           <Select
@@ -95,7 +85,6 @@ export default function Home() {
           </Select>
         </FormControl>
 
-        {/* Ordenação de Preço */}
         <FormControl size="small" sx={{ width: { xs: '100%', sm: 'auto' }, minWidth: 200, backgroundColor: 'background.paper' }}>
           <InputLabel id="sort-label">Ordenar por Preço</InputLabel>
           <Select
@@ -111,7 +100,6 @@ export default function Home() {
         </FormControl>
       </Box>
 
-      {/* Grid de Produtos */}
       <Grid container spacing={4}>
         {sortedAndFilteredProducts.length > 0 ? (
           sortedAndFilteredProducts.map((product) => (

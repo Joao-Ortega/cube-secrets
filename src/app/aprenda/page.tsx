@@ -8,12 +8,10 @@ import { courses } from '@/data/courses';
 import { CheckCircleOutlineOutlined } from '@mui/icons-material';
 
 export default function LearnPage() {
-  // Definimos um verde esmeralda premium para conversão e chamadas para ação
   const successGreen = '#10b981';
 
   return (
     <Container maxWidth="lg" sx={{ mt: 6 }}>
-      {/* Cabeçalho da Página */}
       <Box sx={{ textAlign: 'center', mb: 6 }}>
         <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold' }}>
           Treinamentos <Box component="span" sx={{ color: successGreen }}>Cube Secrets</Box>
@@ -23,40 +21,35 @@ export default function LearnPage() {
         </Typography>
       </Box>
 
-      {/* Lista de Cursos - Agora ocupando 100% da largura em formato horizontal */}
       <Grid container spacing={4}>
         {courses.map((course) => (
           <Grid size={{ xs: 12 }} key={course.id}>
             <Card
               sx={{
                 display: 'flex',
-                flexDirection: { xs: 'column', md: 'row' }, // Horizontal no PC, Vertical no Celular
+                flexDirection: { xs: 'column', md: 'row' },
                 backgroundColor: 'background.paper',
                 transition: 'transform 0.2s, border-color 0.2s',
                 '&:hover': {
                   transform: 'translateY(-2px)',
-                  borderColor: successGreen, // Hover do card agora fica verde
+                  borderColor: successGreen,
                 }
               }}
             >
-              {/* Imagem de Capa do Curso */}
               <CardMedia
                 component="img"
                 image={course.image}
                 alt={course.title}
                 sx={{
-                  width: { xs: '100%', md: '320px' }, // Fixa a largura no desktop para não ficar gigante
-                  height: { xs: '200px', md: 'auto' }, // Altura responsiva
+                  width: { xs: '100%', md: '320px' },
+                  height: { xs: '200px', md: 'auto' },
                   objectFit: 'cover'
                 }}
               />
 
-              {/* Box para agrupar o Conteúdo e o Rodapé ao lado da imagem */}
               <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
 
-                {/* Conteúdo do Card */}
                 <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                  {/* Badges de Informações Rápidas */}
                   <Stack direction="row" spacing={1} sx={{ marginBottom: 2, flexWrap: 'wrap' }} useFlexGap>
                     <Chip
                       icon={<SignalCellularAltIcon fontSize="small" />}
@@ -81,7 +74,6 @@ export default function LearnPage() {
                     {course.description}
                   </Typography>
 
-                  {/* Lista de Vantagens / O que está incluso */}
                   <Typography sx={{ fontWeight: 'bold', marginBottom: 1 }} variant="subtitle2" color="text.primary">
                     O que você vai receber:
                   </Typography>
@@ -97,14 +89,13 @@ export default function LearnPage() {
                   </Grid>
                 </CardContent>
 
-                {/* Rodapé do Card com Preço e Ação */}
                 <Box sx={{
                   borderTop: { xs: '1px solid #222', md: 'none' },
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   padding: 3,
-                  pt: { md: 0 } // Remove o padding-top no desktop para ficar mais orgânico
+                  pt: { md: 0 }
                 }}>
                   <Box>
                     <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block' }}>
@@ -127,7 +118,7 @@ export default function LearnPage() {
                       px: 3,
                       backgroundColor: course.linkKiwify !== '#' ? successGreen : undefined,
                       '&:hover': {
-                        backgroundColor: course.linkKiwify !== '#' ? '#059669' : undefined, // Um verde um pouco mais escuro no hover
+                        backgroundColor: course.linkKiwify !== '#' ? '#059669' : undefined,
                       }
                     }}
                   >
