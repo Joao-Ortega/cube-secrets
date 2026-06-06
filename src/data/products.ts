@@ -1,7 +1,7 @@
 export const products = [
   {
     id: '1',
-    name: 'Cubo Mágico Profissional Cubes Modelo Moyu 3x3x3 Carbono Fluorescente',
+    name: 'Cubo Mágico Profissional Cubes Modelo Moyu Meilong 3x3x3',
     category: 'Cubo 3x3',
     price: 19.99,
     images: ['/images/moyu3x3.jpg', '/images/moyu3x3-2.jpg', '/images/moyu3x3-3.jpg'],
@@ -208,5 +208,25 @@ export const products = [
     affiliateLink: 'https://meli.la/1GsjPeV',
     platform: 'Mercado Livre',
     isBestSeller: true,
+  },
+  {
+    id: '22',
+    name: 'Cubo Mágico 6x6 Moyu',
+    category: 'Cubo 6x6',
+    price: 96.87,
+    images: ['/images/moyu6x6.jpg', '/images/moyu6x6-2.jpg', '/images/moyu6x6-3.jpg', '/images/moyu6x6-4.jpg', '/images/moyu6x6-5.jpg'],
+    affiliateLink: 'https://meli.la/2xUcSq8',
+    platform: 'Mercado Livre',
+    isBestSeller: false,
+  },
+  {
+    id: '23',
+    name: 'Bukefuno MoYu Meilong 6x6 M V2 Cubo Magnético',
+    category: 'Cubo 6x6',
+    price: 180.52,
+    images: ['/images/meilong6x6.jpg', '/images/meilong6x6-2.jpg', '/images/meilong6x6-3.jpg', '/images/meilong6x6-4.jpg'],
+    affiliateLink: 'https://amzn.to/4ujLFzC',
+    platform: 'Amazon',
+    isBestSeller: false,
   },
 ];
