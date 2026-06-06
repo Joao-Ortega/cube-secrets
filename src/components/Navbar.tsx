@@ -9,11 +9,18 @@ import {
   Box,
   IconButton,
   Menu,
-  MenuItem
+  MenuItem,
+  SvgIcon
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Link from 'next/link';
+
+const TikTokIcon = (props: any) => (
+  <SvgIcon {...props} viewBox="0 0 448 512">
+    <path d="M448 209.9a210.1 210.1 0 0 1 -122.8 -39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
+  </SvgIcon>
+);
 
 export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -42,6 +49,19 @@ export default function Navbar() {
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
+
+          <IconButton
+            color="inherit"
+            component="a"
+            href="https://www.tiktok.com/@cube.secrets"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <TikTokIcon sx={{ color: '#FFFFFF' }} />
+            <Typography variant="body2" sx={{ ml: 0.5, color: '#FFFFFF', display: { xs: 'none', sm: 'block' } }}>
+              Cube Secrets
+            </Typography>
+          </IconButton>
 
           <IconButton
             color="inherit"
