@@ -8,7 +8,7 @@ export function ProductCard({ product }: { product: any }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
-  const fadeDuration = 500;
+  const fadeDuration = 600;
 
   useEffect(() => {
     if (!product.images || product.images.length <= 1) return;
